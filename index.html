@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Shorouk ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#dff4ff,#ffffff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+.card{
+text-align:center;
+padding:30px;
+}
+
+h1{
+font-size:40px;
+color:#4a90e2;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+color:#555;
+margin-bottom:25px;
+}
+
+button{
+background:#7ec8ff;
+color:white;
+border:none;
+padding:15px 35px;
+font-size:20px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+background:#5eb8ff;
+}
+
+#message{
+display:none;
+margin-top:25px;
+font-size:22px;
+color:#3f7fd6;
+line-height:1.8;
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>🤍 شُروق</h1>
+
+<p>من محمود... بكل الحب 🌹</p>
+
+<button onclick="showLove()">اضغطي هنا 🤍</button>
+
+<div id="message">
+<p>
+من يوم <b>24 June</b> وأنا حاسس إن الدنيا بقت أهدى وأجمل.<br><br>
+
+يمكن لسه معندناش صور تجمعنا،
+بس عندي أمل إن الأيام هتجمعنا في ذكريات وصور كتير. 🤍<br><br>
+
+إنتِ أكتر لون شبهك هو الأزرق...
+لون الهدوء، والراحة، والسما. ☁️💙<br><br>
+
+كل سنة، وكل يوم،
+يارب تكوني مبسوطة،
+وأكون سبب في ضحكتك. ❤️
+</p>
+</div>
+
+</div>
+
+<script>
+function showLove(){
+document.getElementById("message").style.display="block";
