@@ -1,115 +1,569 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى شروق ✨</title>
+    
+    <!-- استيراد خطوط مميزة من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Reem_Kufi:wght@500;700&display=swap" rel="stylesheet">
 
-<title>For Shorouk ❤️</title>
+    <style>
+        /* -------------------------------------------------- */
+        /* 1. RESET & BASIC STYLES                             */
+        /* -------------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+        body {
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            color: #f8fafc;
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            perspective: 1000px;
+        }
 
-body{
-background:linear-gradient(180deg,#dff4ff,#ffffff);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-}
+        /* -------------------------------------------------- */
+        /* 2. BACKGROUND ANIMATIONS (STARS & NEBULA)          */
+        /* -------------------------------------------------- */
+        #canvas-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+        }
 
-.card{
-text-align:center;
-padding:30px;
-}
+        .nebula {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            top: -10%;
+            right: -10%;
+            z-index: 2;
+            pointer-events: none;
+            filter: blur(50px);
+            animation: floatNebula 20s infinite alternate ease-in-out;
+        }
 
-h1{
-font-size:40px;
-color:#4a90e2;
-margin-bottom:15px;
-}
+        .nebula-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            bottom: -10%;
+            left: -10%;
+            z-index: 2;
+            pointer-events: none;
+            filter: blur(40px);
+            animation: floatNebula 25s infinite alternate-reverse ease-in-out;
+        }
 
-p{
-font-size:20px;
-color:#555;
-margin-bottom:25px;
-}
+        @keyframes floatNebula {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
 
-button{
-background:#7ec8ff;
-color:white;
-border:none;
-padding:15px 35px;
-font-size:20px;
-border-radius:30px;
-cursor:pointer;
-transition:.3s;
-}
+        /* -------------------------------------------------- */
+        /* 3. MAIN INTERFACE (CARD & GLASSMORPHISM)           */
+        /* -------------------------------------------------- */
+        .card-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 480px;
+            padding: 3px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: cardEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
 
-button:hover{
-transform:scale(1.08);
-background:#5eb8ff;
-}
+        .card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 21px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            position: relative;
+        }
 
-#message{
-display:none;
-margin-top:25px;
-font-size:22px;
-color:#3f7fd6;
-line-height:1.8;
-}
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
-.heart{
-position:fixed;
-font-size:24px;
-animation:fall linear forwards;
-}
+        /* -------------------------------------------------- */
+        /* 4. TYPOGRAPHY & TEXT EFFECTS                       */
+        /* -------------------------------------------------- */
+        h1 {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(to left, #ffffff, #93c5fd, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            animation: pulseTitle 3s infinite ease-in-out;
+        }
 
-@keyframes fall{
-0%{
-transform:translateY(-10vh);
-opacity:1;
-}
-100%{
-transform:translateY(110vh);
-opacity:0;
-}
-}
-</style>
+        @keyframes pulseTitle {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3)); }
+        }
+
+        /* -------------------------------------------------- */
+        /* 5. BUTTONS AND CONTROLS                            */
+        /* -------------------------------------------------- */
+        .btn-container {
+            margin: 30px 0 10px 0;
+            position: relative;
+        }
+
+        .main-btn {
+            position: relative;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4), 
+                        0 0 0 0px rgba(37, 99, 235, 0.2);
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .main-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .main-btn:hover::before {
+            left: 100%;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6), 
+                        0 0 0 10px rgba(37, 99, 235, 0.1);
+        }
+
+        .main-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        /* زر كتم واستعادة الصوت */
+        .audio-control {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .audio-control.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .audio-control:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* -------------------------------------------------- */
+        /* 6. SECRET SURPRISE AREA                            */
+        /* -------------------------------------------------- */
+        .message-box {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 0;
+        }
+
+        .message-box.active {
+            opacity: 1;
+            max-height: 500px;
+            margin-top: 30px;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+            margin: 15px auto;
+            width: 80%;
+        }
+
+        .typed-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #e2e8f0;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .heart-badge {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1.8rem;
+            animation: heartbeat 1.2s infinite ease-in-out;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        /* -------------------------------------------------- */
+        /* 7. HEARTS PHYSICS & INTERACTIVE PARTICLES          */
+        /* -------------------------------------------------- */
+        .falling-heart {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+            will-change: transform, opacity;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+            animation: heartFloat linear forwards;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(-5vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(15deg) scale(1);
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* -------------------------------------------------- */
+        /* 8. FOOTER BRANDING                                 */
+        /* -------------------------------------------------- */
+        .footer-note {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="card">
-<h1>🤍 شُروق</h1>
+    <!-- الخلفية التفاعلية للنجوم والمجرات -->
+    <canvas id="canvas-bg"></canvas>
+    <div class="nebula"></div>
+    <div class="nebula-2"></div>
 
-<p>من محمود... بكل الحب 🌹</p>
+    <!-- البطاقة الرئيسية والواجهة -->
+    <div class="card-wrapper">
+        <div class="card">
+            <h1>إلى شروق ✨</h1>
+            
+            <div class="btn-container">
+                <button class="main-btn" id="actionBtn" onclick="triggerMagic()">اضغطي هنا</button>
+            </div>
 
-<button onclick="showLove()">اضغطي هنا 🤍</button>
+            <!-- حاوية الرسالة المفاجئة -->
+            <div class="message-box" id="secretBox">
+                <div class="divider"></div>
+                <div class="typed-text" id="typewriter"></div>
+                <div class="heart-badge" id="heartBadge">💙🤍</div>
+            </div>
 
-<div id="message">
-<p>
-من يوم <b>24 June</b> وأنا حاسس إن الدنيا بقت أهدى وأجمل.<br><br>
+            <div class="footer-note">صُنع بكل حُب 🌌</div>
+        </div>
+    </div>
 
-يمكن لسه معندناش صور تجمعنا،
-بس عندي أمل إن الأيام هتجمعنا في ذكريات وصور كتير. 🤍<br><br>
+    <!-- زر كتم الصوت المدمج -->
+    <button class="audio-control" id="audioToggle" onclick="toggleAudio()">
+        <svg id="speakerOn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <svg id="speakerOff" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+    </button>
 
-إنتِ أكتر لون شبهك هو الأزرق...
-لون الهدوء، والراحة، والسما. ☁️💙<br><br>
+    <!-- موسيقى هادئة من رابط عام مجاني وآمن للويب (Lofi / Soft Piano) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
-كل سنة، وكل يوم،
-يارب تكوني مبسوطة،
-وأكون سبب في ضحكتك. ❤️
-</p>
-</div>
+    <!-- -------------------------------------------------- -->
+    <!-- 9. JAVASCRIPT LOGIC AND INTERACTIONS               -->
+    <!-- -------------------------------------------------- */ -->
+    <script>
+        // --------------------------------------------------
+        // أ. تهيئة الخلفية الفلكية المتلألئة (HTML5 Canvas Stars Engine)
+        // --------------------------------------------------
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
 
-</div>
+        let stars = [];
+        const maxStars = 120;
 
-<script>
-function showLove(){
-document.getElementById("message").style.display="block";
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStars();
+        }
+
+        class Star {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.opacity = Math.random();
+                this.speed = Math.random() * 0.02 + 0.005;
+                this.twinkleFactor = Math.random() * 0.05;
+            }
+
+            update() {
+                this.opacity += this.speed;
+                if (this.opacity > 1 || this.opacity < 0) {
+                    this.speed = -this.speed;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < maxStars; i++) {
+                stars.push(new Star());
+            }
+        }
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            requestAnimationFrame(animateStars);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        animateStars();
+
+
+        // --------------------------------------------------
+        // ب. تشغيل الصوتيات والتحكم فيها
+        // --------------------------------------------------
+        const music = document.getElementById('bgMusic');
+        const audioBtn = document.getElementById('audioToggle');
+        const speakerOnIcon = document.getElementById('speakerOn');
+        const speakerOffIcon = document.getElementById('speakerOff');
+        let isMuted = true;
+
+        function startMusic() {
+            music.volume = 0.4; // خفض الصوت ليكون هادئاً ومريحاً
+            music.play().then(() => {
+                isMuted = false;
+                updateAudioIcons();
+                audioBtn.classList.add('visible');
+            }).catch(e => {
+                console.log("المتصفح منع التشغيل التلقائي حتى الآن، سيتم الانتظار للتفاعل الأول.");
+                audioBtn.classList.add('visible');
+            });
+        }
+
+        function toggleAudio() {
+            if (isMuted) {
+                music.play();
+                isMuted = false;
+            } else {
+                music.pause();
+                isMuted = true;
+            }
+            updateAudioIcons();
+        }
+
+        function updateAudioIcons() {
+            if (isMuted) {
+                speakerOnIcon.style.display = 'none';
+                speakerOffIcon.style.display = 'block';
+            } else {
+                speakerOnIcon.style.display = 'block';
+                speakerOffIcon.style.display = 'none';
+            }
+        }
+
+
+        // --------------------------------------------------
+        // ج. منطق المفاجأة وحركية الآلة الكاتبة والتساقط
+        // --------------------------------------------------
+        let magicTriggered = false;
+        const secretMessage = "كل القلوب هُنا تنبض لأجلكِ.. 💙🤍\nأتمنى لكِ يوماً مليئاً بالبهجة، السعادة، وكل الأشياء الجميلة التي تشبه نقاء قلبكِ شروق! ✨";
+
+        function triggerMagic() {
+            if (magicTriggered) return; // منع التكرار العشوائي
+            magicTriggered = true;
+
+            // 1. تحريك زر الضغط ليتلاشى بشكل راقي
+            const btn = document.getElementById('actionBtn');
+            btn.style.transform = "scale(0.8)";
+            btn.style.opacity = "0";
+            setTimeout(() => {
+                btn.style.display = 'none';
+            }, 400);
+
+            // 2. تفعيل حاوية الرسالة السرية
+            const secretBox = document.getElementById('secretBox');
+            secretBox.classList.add('active');
+
+            // 3. تشغيل الموسيقى الخلفية
+            startMusic();
+
+            // 4. كتابة النص تدريجياً وبنعومة (Typewriter Effect)
+            typeWriterEffect(secretMessage, 'typewriter', 70);
+
+            // 5. بدء عاصفة القلوب الرائعة (أبيض وأزرق)
+            launchHeartShower();
+        }
+
+
+        // محاكاة محرك الآلة الكاتبة بدقة عالية
+        function typeWriterEffect(text, elementId, speed) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = "";
+            let index = 0;
+
+            function write() {
+                if (index < text.length) {
+                    let char = text.charAt(index);
+                    if (char === '\n') {
+                        container.innerHTML += '<br>';
+                    } else {
+                        container.innerHTML += char;
+                    }
+                    index++;
+                    setTimeout(write, speed);
+                }
+            }
+            write();
+        }
+
+
+        // --------------------------------------------------
+        // د. نظام فيزيائي عشوائي وممتاز لمحاكاة تساقط القلوب
+        // --------------------------------------------------
+        let heartInterval;
+
+        function launchHeartShower() {
+            // إرسال موجة أولى كثيفة وفورية من القلوب
+            for (let i = 0; i < 25; i++) {
+                setTimeout(createPerfectHeart, i * 120);
+            }
+
+            // استمرار التساقط المنتظم بشكل طبيعي وهادئ
+            heartInterval = setInterval(createPerfectHeart, 300);
+
+            // تمديد المطر ليتوقف توليده تلقائياً بعد 15 ثانية لحفظ أداء المتصفح
+            setTimeout(() => {
+                clearInterval(heartInterval);
+            }, 15000);
+        }
+
+        function createPerfectHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('falling-heart');
+
+            // اختيار عشوائي للونين المطلوبين فقط
+            const colors = ['🤍', '💙'];
+            heart.innerText = colors[Math.floor(Math.random() * colors.length)];
+
+            // إعداد المتغيرات الفيزيائية العشوائية للمظهر الطبيعي
+            const randomX = Math.random() * 100; // تموضع أفقي بنسبة المئوية لعرض الشاشة
+            const size = Math.random() * 22 + 18; // حجم يتراوح بين 18px و 40px
+            const fallDuration = Math.random() * 4 + 4; // مدة السقوط بين 4 ثوانٍ و 8 ثوانٍ
+            const delay = Math.random() * 0.5; // تأخير بدائي بسيط
+
+            heart.style.left = `${randomX}vw`;
+            heart.style.fontSize = `${size}px`;
+            heart.style.animationDuration = `${fallDuration}s`;
+            heart.style.animationDelay = `${delay}s`;
+
+            // تأثير تمايل يسار ويمين خفيف أثناء السقوط
+            const tilt = Math.random() * 30 - 15; // زاوية دوران عشوائية
+            heart.style.transform = `rotate(${tilt}deg)`;
+
+            document.body.appendChild(heart);
+
+            // تدمير عنصر الـ DOM عند الانتهاء لضمان الأداء السلس
+            setTimeout(() => {
+                heart.remove();
+            }, (fallDuration + delay) * 1000);
+        }
+    </script>
+</body>
+</html>
