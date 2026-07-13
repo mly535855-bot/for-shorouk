@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For Shūrouk 🤍</title>
     
-    <!-- استدعاء الخطوط الفاخرة للويب من Google Fonts -->
+    <!-- استدعاء الخطوط الفاخرة والراقية للويب من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@200;300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* -------------------------------------------------- */
@@ -236,7 +236,7 @@
         /* الرسالة الأدبية الكاتبة */
         .literary-box {
             font-family: 'Amiri', serif;
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             line-height: 2.1;
             color: var(--text-dark);
             text-align: justify;
@@ -246,14 +246,42 @@
             position: relative;
         }
 
+        /* ديوان الشعر الجديد */
+        .poetry-section {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            line-height: 2.2;
+            color: var(--text-dark);
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .poetry-verse {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .poetry-verse span {
+            display: block;
+            margin: 4px 0;
+        }
+
+        .verse-separator {
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+            margin: 10px 0;
+        }
+
         /* -------------------------------------------------- */
         /* 7. LIVE METRIC COUNTER (نظام العداد الزمني الحي)    */
         /* -------------------------------------------------- */
         .metric-headline {
-            font-size: 1.15rem;
-            color: var(--text-muted);
+            font-size: 1.2rem;
+            color: var(--text-dark);
             margin-bottom: 25px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
 
@@ -367,7 +395,7 @@
 
         .meta-shurouk {
             font-family: 'Amiri', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 6px;
@@ -381,7 +409,7 @@
 
         .meta-mahmoud {
             margin-top: 20px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--text-dark);
@@ -459,6 +487,9 @@
             .literary-box {
                 font-size: 1.35rem;
             }
+            .poetry-section {
+                font-size: 1.4rem;
+            }
             .metric-number {
                 font-size: 1.35rem;
             }
@@ -503,7 +534,7 @@
     <!-- ================================================== -->
     <div class="viewport-section" id="journey-manifesto">
         
-        <!-- القسم الأدبي الأول: الرسالة المكتوبة آلياً -->
+        <!-- الكارت الأول: الرسالة المكتوبة بصورتك الأولى -->
         <div class="luxury-card tilt-target">
             <div class="canvas-frame">
                 <!-- هنا تم ربط الصورة الأولى مباشرة pic1.jpg المرفوعة من قبلك -->
@@ -514,7 +545,7 @@
             <div class="literary-box" id="dynamic-text-node"></div>
         </div>
 
-        <!-- القسم الإحصائي الثاني: العداد الزمني والزر الخاص السري -->
+        <!-- الكارت الثاني: العداد الزمني وصورتك الثانية والزر السري -->
         <div class="luxury-card tilt-target">
             <h3 class="metric-headline">اللحظات الجميلة التي عشناها معًا 🌌</h3>
             
@@ -552,6 +583,103 @@
                 <p style="font-family: 'Amiri', serif; font-size: 1.35rem; line-height: 1.9; color: var(--text-dark);">
                     "وفي كل يوم يمر، أجد في تفاصيلكِ ما يجعلني ممتنًا للأقدار أكثر.. دمتِ لي شيئاً جميلاً لا ينتهي." ✨🩵
                 </p>
+            </div>
+        </div>
+
+        <!-- ================================================== -->
+        <!-- الكارت الثالث (الجديد): الأبيات الشعرية الراقية والعداد الثاني -->
+        <!-- ================================================== -->
+        <div class="luxury-card tilt-target">
+            <h3 class="metric-headline">منذ أول اعتراف نبض به قلبانا.. 🤍</h3>
+
+            <!-- شبكة العداد الزمني الثاني الدقيق لتاريخ 4/7/2026 -->
+            <div class="metric-grid" style="margin-bottom: 35px;">
+                <div class="metric-block" style="background: rgba(255, 255, 255, 0.55);">
+                    <span class="metric-number" id="love-days" style="color: #0284c7;">00</span>
+                    <span class="metric-label">يوم</span>
+                </div>
+                <div class="metric-block" style="background: rgba(255, 255, 255, 0.55);">
+                    <span class="metric-number" id="love-hours" style="color: #0284c7;">00</span>
+                    <span class="metric-label">ساعة</span>
+                </div>
+                <div class="metric-block" style="background: rgba(255, 255, 255, 0.55);">
+                    <span class="metric-number" id="love-minutes" style="color: #0284c7;">00</span>
+                    <span class="metric-label">دقيقة</span>
+                </div>
+                <div class="metric-block" style="background: rgba(255, 255, 255, 0.55);">
+                    <span class="metric-number" id="love-seconds" style="color: #0284c7;">00</span>
+                    <span class="metric-label">ثانية</span>
+                </div>
+            </div>
+
+            <!-- ديوان الشعر المنسق بخط أميري كلاسيكي فاخر -->
+            <div class="poetry-section">
+                
+                <div class="poetry-verse">
+                    <span>أَلا يا نَسيمَ الرَّوضِ إِن مَرَّ موهِنًا</span>
+                    <span>فَبَلِّغ شُورَقًا أَنَّ الفُؤادَ مُقيمُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>وَقُل: إِنَّ لَيلَ العاشِقينَ إِذا سَرى</span>
+                    <span>يُطيلُ بِهِ ذِكرُ الحِسانِ النُّجومُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>وَما هِيَ إِلّا أَن تَبَدَّت لِمُقلَتي</span>
+                    <span>فَأَصبَحَ ما أُخفيهِ وَهُوَ عَظيمُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>كَأَنَّ بِها لِلشَّمسِ نورًا مُعارًا</span>
+                    <span>وَلِلبَدرِ مِن إِشراقِها تَعليمُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>أُحاوِلُ كِتمانَ الهَوى فَتَدُلُّني</span>
+                    <span>عَلَيكِ عُيونٌ دَمعُها مَفهومُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>وَما الحُبُّ أَن يُفشِي المُحِبُّ صَبابَتَهُ</span>
+                    <span>وَلَكِنَّهُ سِرٌّ بِهِ المَكتومُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>أَراكِ، فَيُنسِي القَلبَ ما كانَ حافِظًا</span>
+                    <span>وَيَعجِزُ عَمّا يَستَبينُ حَكيمُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>إِذا ذُكِرَ الحُسنُ استَحَيتُ مِن اِسمِهِ</span>
+                    <span>كَأَنَّ سِواهُ في الجَمالِ عَديمُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>فَيا لَيتَ شِعري، هَل جَمَعَتنا مَشيئَةٌ</span>
+                    <span>كَما جَمَعَ الأَغصانَ غَيثٌ عَميمُ؟</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>فَإِن كانَ لي في الوَصلِ حَظٌّ فَإِنَّني</span>
+                    <span>أَرى العُمرَ بَعدَ الوَصلِ وَهُوَ يَدومُ</span>
+                </div>
+                <div class="verse-separator"></div>
+
+                <div class="poetry-verse">
+                    <span>وَإِن حالَ بَينَ القَلبِ وَالوَصلِ حاجِبٌ</span>
+                    <span>فَحَسبي بِأَنَّ الوِدَّ مِنكِ كَريمُ</span>
+                </div>
+
             </div>
 
             <!-- الخاتمة والبراند والتوقيع الفاخر -->
@@ -700,25 +828,38 @@
         }
 
         // --------------------------------------------------
-        // د. نظام ومحرك العداد الزمني الدقيق (24 يونيو 2026)
+        // د. نظام ومحرك العداد الزمني الدقيق 1 (24 يونيو 2026)
         // --------------------------------------------------
         const epochTimestamp = new Date("June 24, 2026 00:00:00").getTime();
+        // العداد الثاني الدقيق (4 يوليو 2026)
+        const loveTimestamp = new Date("July 4, 2026 00:00:00").getTime();
 
         function syncChronometerMetrics() {
             const temporalNow = new Date().getTime();
-            const elapsedTimeDelta = temporalNow - epochTimestamp;
+            
+            // 1. حسابات العداد الأول
+            const elapsedTimeDelta1 = temporalNow - epochTimestamp;
+            const calculatedDays1 = Math.floor(elapsedTimeDelta1 / (1000 * 60 * 60 * 24));
+            const calculatedHours1 = Math.floor((elapsedTimeDelta1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const calculatedMinutes1 = Math.floor((elapsedTimeDelta1 % (1000 * 60 * 60)) / (1000 * 60));
+            const calculatedSeconds1 = Math.floor((elapsedTimeDelta1 % (1000 * 60)) / 1000);
 
-            // حسابات الوقت التفصيلية والمنقضية
-            const calculatedDays = Math.floor(elapsedTimeDelta / (1000 * 60 * 60 * 24));
-            const calculatedHours = Math.floor((elapsedTimeDelta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const calculatedMinutes = Math.floor((elapsedTimeDelta % (1000 * 60 * 60)) / (1000 * 60));
-            const calculatedSeconds = Math.floor((elapsedTimeDelta % (1000 * 60)) / 1000);
+            document.getElementById('node-days').innerText = calculatedDays1 < 10 ? '0' + calculatedDays1 : calculatedDays1;
+            document.getElementById('node-hours').innerText = calculatedHours1 < 10 ? '0' + calculatedHours1 : calculatedHours1;
+            document.getElementById('node-minutes').innerText = calculatedMinutes1 < 10 ? '0' + calculatedMinutes1 : calculatedMinutes1;
+            document.getElementById('node-seconds').innerText = calculatedSeconds1 < 10 ? '0' + calculatedSeconds1 : calculatedSeconds1;
 
-            // حقن البيانات في واجهة الـ DOM
-            document.getElementById('node-days').innerText = calculatedDays < 10 ? '0' + calculatedDays : calculatedDays;
-            document.getElementById('node-hours').innerText = calculatedHours < 10 ? '0' + calculatedHours : calculatedHours;
-            document.getElementById('node-minutes').innerText = calculatedMinutes < 10 ? '0' + calculatedMinutes : calculatedMinutes;
-            document.getElementById('node-seconds').innerText = calculatedSeconds < 10 ? '0' + calculatedSeconds : calculatedSeconds;
+            // 2. حسابات العداد الثاني
+            const elapsedTimeDelta2 = temporalNow - loveTimestamp;
+            const calculatedDays2 = Math.floor(elapsedTimeDelta2 / (1000 * 60 * 60 * 24));
+            const calculatedHours2 = Math.floor((elapsedTimeDelta2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const calculatedMinutes2 = Math.floor((elapsedTimeDelta2 % (1000 * 60 * 60)) / (1000 * 60));
+            const calculatedSeconds2 = Math.floor((elapsedTimeDelta2 % (1000 * 60)) / 1000);
+
+            document.getElementById('love-days').innerText = calculatedDays2 < 10 ? '0' + calculatedDays2 : calculatedDays2;
+            document.getElementById('love-hours').innerText = calculatedHours2 < 10 ? '0' + calculatedHours2 : calculatedHours2;
+            document.getElementById('love-minutes').innerText = calculatedMinutes2 < 10 ? '0' + calculatedMinutes2 : calculatedMinutes2;
+            document.getElementById('love-seconds').innerText = calculatedSeconds2 < 10 ? '0' + calculatedSeconds2 : calculatedSeconds2;
         }
 
         setInterval(syncChronometerMetrics, 1000);
