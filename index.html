@@ -2,567 +2,797 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إلى شروق ✨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Shūrouk 🤍</title>
     
-    <!-- استيراد خطوط مميزة من Google Fonts -->
+    <!-- استدعاء الخطوط الفاخرة للويب من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Reem_Kufi:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@200;300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* -------------------------------------------------- */
-        /* 1. RESET & BASIC STYLES                             */
+        /* 1. ARCHITECTURE & VARIABLES (الهندسة والألوان)      */
         /* -------------------------------------------------- */
+        :root {
+            --baby-blue: #e0f2fe;      
+            --sky-accent: #bae6fd;     
+            --sky-glow: rgba(186, 230, 253, 0.4);
+            --powder-pink: #fce7f3;    
+            --pink-accent: #fbcfe8;    
+            --pink-glow: rgba(251, 207, 232, 0.3);
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --card-bg: rgba(255, 255, 255, 0.42);
+            --card-border: rgba(255, 255, 255, 0.65);
+            --transition-smooth: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Reset & Global Overrides */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            user-select: none;
-            -webkit-user-select: none;
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-            color: #f8fafc;
             font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--baby-blue) 0%, var(--powder-pink) 100%);
+            color: var(--text-dark);
             min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            line-height: 1.6;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            position: relative;
-            perspective: 1000px;
         }
 
         /* -------------------------------------------------- */
-        /* 2. BACKGROUND ANIMATIONS (STARS & NEBULA)          */
+        /* 2. ADVANCED BACKGROUND PARTICLES (محرك جزيئات فلكي) */
         /* -------------------------------------------------- */
-        #canvas-bg {
-            position: absolute;
+        #interactive-space {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
             z-index: 1;
             pointer-events: none;
+            will-change: transform;
         }
 
-        .nebula {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
             border-radius: 50%;
-            top: -10%;
-            right: -10%;
-            z-index: 2;
             pointer-events: none;
-            filter: blur(50px);
-            animation: floatNebula 20s infinite alternate ease-in-out;
+            z-index: 2;
+            filter: blur(80px);
+            opacity: 0.6;
+            will-change: transform;
         }
 
-        .nebula-2 {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            bottom: -10%;
-            left: -10%;
-            z-index: 2;
-            pointer-events: none;
-            filter: blur(40px);
-            animation: floatNebula 25s infinite alternate-reverse ease-in-out;
+        .glow-blue {
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(circle, var(--sky-glow) 0%, rgba(0,0,0,0) 70%);
+            animation: driftGlow 25s infinite alternate ease-in-out;
         }
 
-        @keyframes floatNebula {
+        .glow-pink {
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, var(--pink-glow) 0%, rgba(0,0,0,0) 70%);
+            animation: driftGlow 30s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes driftGlow {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.2); }
+            100% { transform: translate(80px, 60px) scale(1.15); }
         }
 
         /* -------------------------------------------------- */
-        /* 3. MAIN INTERFACE (CARD & GLASSMORPHISM)           */
+        /* 3. LAYOUT & GLASSMORPHISM CONTAINERS               */
         /* -------------------------------------------------- */
-        .card-wrapper {
+        .viewport-section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
             position: relative;
             z-index: 10;
-            width: 90%;
-            max-width: 480px;
-            padding: 3px;
-            border-radius: 24px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05));
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            animation: cardEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .card {
-            background: rgba(15, 23, 42, 0.85);
+        .luxury-card {
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 21px;
-            padding: 40px 30px;
+            border: 1px solid var(--card-border);
+            border-radius: 32px;
+            padding: 50px 35px;
+            width: 100%;
+            max-width: 520px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.04),
+                        inset 0 0 20px rgba(255, 255, 255, 0.3);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.1s ease, box-shadow 0.5s ease;
+            position: relative;
             overflow: hidden;
+        }
+
+        .luxury-card:hover {
+            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.08);
+        }
+
+        /* -------------------------------------------------- */
+        /* 4. BUTTON ARCHITECTURE (هندسة الأزرار والتفاعلات)   */
+        /* -------------------------------------------------- */
+        .btn-wrapper {
             position: relative;
+            display: inline-block;
+            margin: 25px 0;
         }
 
-        @keyframes cardEntrance {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* -------------------------------------------------- */
-        /* 4. TYPOGRAPHY & TEXT EFFECTS                       */
-        /* -------------------------------------------------- */
-        h1 {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(to left, #ffffff, #93c5fd, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            animation: pulseTitle 3s infinite ease-in-out;
-        }
-
-        @keyframes pulseTitle {
-            0%, 100% { opacity: 0.95; }
-            50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3)); }
-        }
-
-        /* -------------------------------------------------- */
-        /* 5. BUTTONS AND CONTROLS                            */
-        /* -------------------------------------------------- */
-        .btn-container {
-            margin: 30px 0 10px 0;
-            position: relative;
-        }
-
-        .main-btn {
-            position: relative;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%);
-            color: #ffffff;
+        .interactive-btn {
+            background: var(--white);
+            color: var(--text-dark);
+            border: 1px solid rgba(255, 255, 255, 0.9);
             font-family: 'Cairo', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            padding: 16px 45px;
-            border: none;
+            padding: 14px 45px;
             border-radius: 50px;
             cursor: pointer;
-            outline: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4), 
-                        0 0 0 0px rgba(37, 99, 235, 0.2);
-            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
             z-index: 5;
         }
 
-        .main-btn::before {
-            content: '';
+        .interactive-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: linear-gradient(135deg, var(--white) 0%, var(--sky-accent) 100%);
+            box-shadow: 0 12px 30px rgba(186, 230, 253, 0.5);
+        }
+
+        .interactive-btn:active {
+            transform: translateY(-1px) scale(0.99);
+        }
+
+        /* -------------------------------------------------- */
+        /* 5. TYPOGRAPHY & MOTIONS (الحركات والخطوط)          */
+        /* -------------------------------------------------- */
+        .welcome-screen-container {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+
+        .welcome-screen-container.fade-out {
+            opacity: 0;
+            transform: scale(0.92) translateY(-30px);
+            pointer-events: none;
             position: absolute;
-            top: 0;
-            left: -100%;
+        }
+
+        .title-primary {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            animation: calmPulse 4s infinite ease-in-out;
+        }
+
+        .tagline-sub {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes calmPulse {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.02); opacity: 1; }
+        }
+
+        /* -------------------------------------------------- */
+        /* 6. MAIN CONTENT JOURNEY (المحتوى الرئيسي للرحلة)    */
+        /* -------------------------------------------------- */
+        #journey-manifesto {
+            display: none;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            flex-direction: column;
+            gap: 45px;
+            width: 100%;
+        }
+
+        #journey-manifesto.fade-in {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* الرسالة الأدبية الكاتبة */
+        .literary-box {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            line-height: 2.1;
+            color: var(--text-dark);
+            text-align: justify;
+            text-justify: inter-word;
+            min-height: 180px;
+            padding: 10px 5px;
+            position: relative;
+        }
+
+        /* -------------------------------------------------- */
+        /* 7. LIVE METRIC COUNTER (نظام العداد الزمني الحي)    */
+        /* -------------------------------------------------- */
+        .metric-headline {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .metric-block {
+            background: rgba(255, 255, 255, 0.45);
+            padding: 15px 5px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-block:hover {
+            transform: translateY(-2px);
+        }
+
+        .metric-number {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* -------------------------------------------------- */
+        /* 8. VISUAL PLACEHOLDERS (معارض وصور مخصصة)          */
+        /* -------------------------------------------------- */
+        .canvas-frame {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, var(--sky-accent), var(--powder-pink));
+            border-radius: 20px;
+            margin: 20px 0 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+            border: 2px dashed rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.01);
+        }
+
+        .canvas-frame img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.6s ease;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease;
         }
 
-        .main-btn:hover::before {
-            left: 100%;
+        .canvas-frame:hover img {
+            transform: scale(1.04);
         }
 
-        .main-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.6), 
-                        0 0 0 10px rgba(37, 99, 235, 0.1);
+        /* -------------------------------------------------- */
+        /* 9. SECRET SYSTEM SURPRISE (نظام المفاجأة الإضافي)    */
+        /* -------------------------------------------------- */
+        .hidden-vault {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .main-btn:active {
-            transform: translateY(-1px) scale(0.98);
+        .hidden-vault.unlocked {
+            max-height: 350px;
+            opacity: 1;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.8);
         }
 
-        /* زر كتم واستعادة الصوت */
-        .audio-control {
+        /* -------------------------------------------------- */
+        /* 10. LUXURY SIGNATURE & BRANDING (التوقيع والنهاية) */
+        /* -------------------------------------------------- */
+        .brand-epilogue {
+            margin-top: 45px;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .brand-epilogue::before {
+            content: '✨';
+            position: absolute;
+            top: -12px;
+            left: calc(50% - 10px);
+            background: transparent;
+            font-size: 0.9rem;
+        }
+
+        .meta-shurouk {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .meta-thankyou {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .meta-mahmoud {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+        }
+
+        /* -------------------------------------------------- */
+        /* 11. AUDIO ENGINE WIDGETS (مشغل ومتحكم الصوت)        */
+        /* -------------------------------------------------- */
+        .audio-suite-anchor {
             position: fixed;
-            bottom: 25px;
+            top: 25px;
             left: 25px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            width: 45px;
-            height: 45px;
+            z-index: 999;
+        }
+
+        .audio-trigger {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 100;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: var(--transition-smooth);
         }
 
-        .audio-control.visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .audio-control:hover {
-            background: rgba(59, 130, 246, 0.3);
+        .audio-trigger:hover {
             transform: scale(1.1);
+            background: var(--white);
         }
 
         /* -------------------------------------------------- */
-        /* 6. SECRET SURPRISE AREA                            */
+        /* 12. FLOATING KINETIC HEARTS (محرك القلوب الحركي)   */
         /* -------------------------------------------------- */
-        .message-box {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-            margin-top: 0;
-        }
-
-        .message-box.active {
-            opacity: 1;
-            max-height: 500px;
-            margin-top: 30px;
-        }
-
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
-            margin: 15px auto;
-            width: 80%;
-        }
-
-        .typed-text {
-            font-size: 1.4rem;
-            line-height: 1.8;
-            font-weight: 400;
-            color: #e2e8f0;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .heart-badge {
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 1.8rem;
-            animation: heartbeat 1.2s infinite ease-in-out;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.25); }
-        }
-
-        /* -------------------------------------------------- */
-        /* 7. HEARTS PHYSICS & INTERACTIVE PARTICLES          */
-        /* -------------------------------------------------- */
-        .falling-heart {
-            position: absolute;
+        .kinetic-heart {
+            position: fixed;
+            bottom: -60px;
             pointer-events: none;
-            z-index: 5;
+            z-index: 3;
             will-change: transform, opacity;
-            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
-            animation: heartFloat linear forwards;
+            animation: streamUp linear forwards;
         }
 
-        @keyframes heartFloat {
+        @keyframes streamUp {
             0% {
-                transform: translateY(-5vh) rotate(0deg) scale(0.5);
+                transform: translateY(0) translateX(0) rotate(0deg) scale(0.4);
                 opacity: 0;
             }
-            10% {
-                opacity: 1;
-                transform: translateY(10vh) rotate(15deg) scale(1);
+            15% {
+                opacity: 0.7;
+                transform: translateY(-10vh) translateX(calc(var(--drift-x) * 0.2)) rotate(20deg) scale(1);
             }
-            90% {
-                opacity: 0.9;
+            85% {
+                opacity: 0.7;
             }
             100% {
-                transform: translateY(105vh) rotate(360deg) scale(0.8);
+                transform: translateY(-110vh) translateX(var(--drift-x)) rotate(360deg) scale(0.75);
                 opacity: 0;
             }
         }
 
-        /* -------------------------------------------------- */
-        /* 8. FOOTER BRANDING                                 */
-        /* -------------------------------------------------- */
-        .footer-note {
-            margin-top: 25px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 0.5px;
+        /* الاستجابة للهواتف (Responsive Engine) */
+        @media(max-width: 480px) {
+            .luxury-card {
+                padding: 40px 20px;
+            }
+            .title-primary {
+                font-size: 2.4rem;
+            }
+            .literary-box {
+                font-size: 1.35rem;
+            }
+            .metric-number {
+                font-size: 1.35rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- الخلفية التفاعلية للنجوم والمجرات -->
-    <canvas id="canvas-bg"></canvas>
-    <div class="nebula"></div>
-    <div class="nebula-2"></div>
+    <!-- متحكم الصوت الاحترافي المدمج -->
+    <div class="audio-suite-anchor">
+        <button class="audio-trigger" id="masterAudioBtn" onclick="orchestrateAudioToggle()" title="تحكم بالصوت">
+            <span id="audio-state-indicator">🎵</span>
+        </button>
+    </div>
 
-    <!-- البطاقة الرئيسية والواجهة -->
-    <div class="card-wrapper">
-        <div class="card">
-            <h1>إلى شروق ✨</h1>
+    <!-- كائن هندسة الصوت - سيبحث تلقائياً عن ملف music.mp3 في المجلد الرئيسي -->
+    <audio id="romanticSuiteNode" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- نظام المحاكاة البصرية الفلكية والجزيئية -->
+    <canvas id="interactive-space"></canvas>
+    <div class="ambient-glow glow-blue"></div>
+    <div class="ambient-glow glow-pink"></div>
+
+    <!-- ================================================== -->
+    <!-- الشاشة الأولى: الصفحة الافتتاحية للموقع              -->
+    <!-- ================================================== -->
+    <div class="viewport-section welcome-screen-container" id="gateway-view">
+        <div class="luxury-card" id="welcomeCard">
+            <h1 class="title-primary">For Shūrouk 🤍</h1>
+            <p class="subtitle tagline-sub">This page was made especially for one person.</p>
             
-            <div class="btn-container">
-                <button class="main-btn" id="actionBtn" onclick="triggerMagic()">اضغطي هنا</button>
+            <div class="btn-wrapper">
+                <button class="interactive-btn" onclick="initializeGrandJourney()">ابدئي الرحلة 🌹</button>
             </div>
-
-            <!-- حاوية الرسالة المفاجئة -->
-            <div class="message-box" id="secretBox">
-                <div class="divider"></div>
-                <div class="typed-text" id="typewriter"></div>
-                <div class="heart-badge" id="heartBadge">💙🤍</div>
-            </div>
-
-            <div class="footer-note">صُنع بكل حُب 🌌</div>
         </div>
     </div>
 
-    <!-- زر كتم الصوت المدمج -->
-    <button class="audio-control" id="audioToggle" onclick="toggleAudio()">
-        <svg id="speakerOn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-        <svg id="speakerOff" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-    </button>
+    <!-- ================================================== -->
+    <!-- الشاشة الثانية: واجهة المحتوى المتكامل والرحلة        -->
+    <!-- ================================================== -->
+    <div class="viewport-section" id="journey-manifesto">
+        
+        <!-- القسم الأدبي الأول: الرسالة المكتوبة آلياً -->
+        <div class="luxury-card tilt-target">
+            <div class="canvas-frame">
+                <span>[ مساحة مخصصة لصورة جميلة رقم 1 🎨 ]</span>
+                <!-- لاستبدالها بصورة خاصة بك، امسح السطر أعلاه وفعل السطر التالي: -->
+                <!-- <img src="shurouk-photo1.jpg" alt="Shurouk Memory"> -->
+            </div>
 
-    <!-- موسيقى هادئة من رابط عام مجاني وآمن للويب (Lofi / Soft Piano) -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
+            <!-- حاوية نص الرسالة الأدبية الفصيحة -->
+            <div class="literary-box" id="dynamic-text-node"></div>
+        </div>
 
-    <!-- -------------------------------------------------- -->
-    <!-- 9. JAVASCRIPT LOGIC AND INTERACTIONS               -->
-    <!-- -------------------------------------------------- */ -->
+        <!-- القسم الإحصائي الثاني: العداد الزمني والزر الخاص السري -->
+        <div class="luxury-card tilt-target">
+            <h3 class="metric-headline">اللحظات الجميلة التي عشناها معًا 🌌</h3>
+            
+            <!-- شبكة العداد الزمني المتطور -->
+            <div class="metric-grid">
+                <div class="metric-block">
+                    <span class="metric-number" id="node-days">00</span>
+                    <span class="metric-label">يوم</span>
+                </div>
+                <div class="metric-block">
+                    <span class="metric-number" id="node-hours">00</span>
+                    <span class="metric-label">ساعة</span>
+                </div>
+                <div class="metric-block">
+                    <span class="metric-number" id="node-minutes">00</span>
+                    <span class="metric-label">دقيقة</span>
+                </div>
+                <div class="metric-block">
+                    <span class="metric-number" id="node-seconds">00</span>
+                    <span class="metric-label">ثانية</span>
+                </div>
+            </div>
+
+            <div class="canvas-frame" style="height: 190px;">
+                <span>[ مساحة مخصصة لرسمة تعبيرية رقم 2 🌌 ]</span>
+                <!-- <img src="shurouk-photo2.jpg" alt="Shurouk Vector"> -->
+            </div>
+
+            <div class="btn-wrapper">
+                <button class="interactive-btn" id="triggerSurpriseNodeBtn" onclick="executeVaultSurprise()">اضغطي هنا 🤍</button>
+            </div>
+
+            <!-- الرسالة المخفية والسرية الثانية -->
+            <div class="hidden-vault" id="vaultContentBlock">
+                <p style="font-family: 'Amiri', serif; font-size: 1.35rem; line-height: 1.9; color: var(--text-dark);">
+                    "وفي كل يوم يمر، أجد في تفاصيلكِ ما يجعلني ممتنًا للأقدار أكثر.. دمتِ لي شيئاً جميلاً لا ينتهي." ✨🩵
+                </p>
+            </div>
+
+            <!-- الخاتمة والبراند والتوقيع الفاخر -->
+            <div class="brand-epilogue">
+                <div class="meta-shurouk">شُروق 🤍</div>
+                <div class="meta-thankyou">شكراً لأنكِ موجودة في حياتي.</div>
+                <div class="meta-mahmoud">— محمود</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ================================================== -->
+    <!-- الأنظمة والمحركات البرمجية المتقدمة (JAVASCRIPT)     -->
+    <!-- ================================================== -->
     <script>
         // --------------------------------------------------
-        // أ. تهيئة الخلفية الفلكية المتلألئة (HTML5 Canvas Stars Engine)
+        // أ. محرك الجزيئات الفلكية المتقدم (Advanced Particle Space Engine)
         // --------------------------------------------------
-        const canvas = document.getElementById('canvas-bg');
-        const ctx = canvas.getContext('2d');
+        const spaceCanvas = document.getElementById('interactive-space');
+        const spaceCtx = spaceCanvas.getContext('2d');
+        let spaceStars = [];
+        const totalSpaceStars = 90;
 
-        let stars = [];
-        const maxStars = 120;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initStars();
+        function configureSpaceDimensions() {
+            spaceCanvas.width = window.innerWidth;
+            spaceCanvas.height = window.innerHeight;
+            generateSpaceSystem();
         }
 
-        class Star {
+        class CosmicStar {
             constructor() {
-                this.reset();
+                this.init();
             }
-
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.opacity = Math.random();
-                this.speed = Math.random() * 0.02 + 0.005;
-                this.twinkleFactor = Math.random() * 0.05;
+            init() {
+                this.x = Math.random() * spaceCanvas.width;
+                this.y = Math.random() * spaceCanvas.height;
+                this.radius = Math.random() * 1.5 + 0.5;
+                this.alpha = Math.random();
+                this.velocity = Math.random() * 0.015 + 0.005;
+                this.direction = Math.random() > 0.5 ? 1 : -1;
             }
-
-            update() {
-                this.opacity += this.speed;
-                if (this.opacity > 1 || this.opacity < 0) {
-                    this.speed = -this.speed;
+            process() {
+                this.alpha += this.velocity * this.direction;
+                if (this.alpha > 1 || this.alpha < 0.1) {
+                    this.direction *= -1;
                 }
             }
-
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+            render() {
+                spaceCtx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                spaceCtx.beginPath();
+                spaceCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                spaceCtx.fill();
             }
         }
 
-        function initStars() {
-            stars = [];
-            for (let i = 0; i < maxStars; i++) {
-                stars.push(new Star());
+        function generateSpaceSystem() {
+            spaceStars = [];
+            for (let i = 0; i < totalSpaceStars; i++) {
+                spaceStars.push(new CosmicStar());
             }
         }
 
-        function animateStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            stars.forEach(star => {
-                star.update();
-                star.draw();
+        function loopSpaceAnimation() {
+            spaceCtx.clearRect(0, 0, spaceCanvas.width, spaceCanvas.height);
+            spaceStars.forEach(star => {
+                star.process();
+                star.render();
             });
-            requestAnimationFrame(animateStars);
+            requestAnimationFrame(loopSpaceAnimation);
         }
 
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        animateStars();
-
+        window.addEventListener('resize', configureSpaceDimensions);
+        configureSpaceDimensions();
+        loopSpaceAnimation();
 
         // --------------------------------------------------
-        // ب. تشغيل الصوتيات والتحكم فيها
+        // ب. نظام الصوت الاحترافي وحل قيود المتصفحات
         // --------------------------------------------------
-        const music = document.getElementById('bgMusic');
-        const audioBtn = document.getElementById('audioToggle');
-        const speakerOnIcon = document.getElementById('speakerOn');
-        const speakerOffIcon = document.getElementById('speakerOff');
-        let isMuted = true;
+        const audioNode = document.getElementById('romanticSuiteNode');
+        const audioIndicatorNode = document.getElementById('audio-state-indicator');
+        let audioSystemActive = false;
 
-        function startMusic() {
-            music.volume = 0.4; // خفض الصوت ليكون هادئاً ومريحاً
-            music.play().then(() => {
-                isMuted = false;
-                updateAudioIcons();
-                audioBtn.classList.add('visible');
-            }).catch(e => {
-                console.log("المتصفح منع التشغيل التلقائي حتى الآن، سيتم الانتظار للتفاعل الأول.");
-                audioBtn.classList.add('visible');
-            });
-        }
-
-        function toggleAudio() {
-            if (isMuted) {
-                music.play();
-                isMuted = false;
+        function orchestrateAudioToggle() {
+            if (audioSystemActive) {
+                audioNode.pause();
+                audioIndicatorNode.innerText = "🔇";
+                audioSystemActive = false;
             } else {
-                music.pause();
-                isMuted = true;
-            }
-            updateAudioIcons();
-        }
-
-        function updateAudioIcons() {
-            if (isMuted) {
-                speakerOnIcon.style.display = 'none';
-                speakerOffIcon.style.display = 'block';
-            } else {
-                speakerOnIcon.style.display = 'block';
-                speakerOffIcon.style.display = 'none';
+                audioNode.play().then(() => {
+                    audioIndicatorNode.innerText = "🎵";
+                    audioSystemActive = true;
+                }).catch(() => {
+                    console.log("Audio pipeline blocked by browser security policy.");
+                });
             }
         }
 
+        function forceAudioBoot() {
+            audioNode.play().then(() => {
+                audioSystemActive = true;
+                audioIndicatorNode.innerText = "🎵";
+            }).catch(() => {});
+        }
 
         // --------------------------------------------------
-        // ج. منطق المفاجأة وحركية الآلة الكاتبة والتساقط
+        // ج. تشغيل الرحلة وتأثيرات الكتابة السينمائية
         // --------------------------------------------------
-        let magicTriggered = false;
-        const secretMessage = "كل القلوب هُنا تنبض لأجلكِ.. 💙🤍\nأتمنى لكِ يوماً مليئاً بالبهجة، السعادة، وكل الأشياء الجميلة التي تشبه نقاء قلبكِ شروق! ✨";
+        const masterManifestoString = "إلى شروق.. في زحام هذه الحياة العابرة، تظل هناك تفاصيل صغيرة تصنع فارقاً كبيراً في أيامنا. وجودكِ في حياتي يشبه ذلك الفارق المبهج؛ كأنه النور الهادئ الذي يضفي السكينة على كل شيء يمر به. لستِ مجرد عابرة، بل أنتِ الجزء الجميل، النقي، والراقٍ الذي أحمد الله على وجوده بكل صدق.. 🤍";
+        
+        function initializeGrandJourney() {
+            forceAudioBoot();
 
-        function triggerMagic() {
-            if (magicTriggered) return; // منع التكرار العشوائي
-            magicTriggered = true;
+            // خروج ناعم لشاشة الاستقبال
+            document.getElementById('gateway-view').classList.add('fade-out');
+            
+            // دخول ناعم ومجدول للرحلة بالكامل
+            const mainViewNode = document.getElementById('journey-manifesto');
+            mainViewNode.classList.add('fade-in');
 
-            // 1. تحريك زر الضغط ليتلاشى بشكل راقي
-            const btn = document.getElementById('actionBtn');
-            btn.style.transform = "scale(0.8)";
-            btn.style.opacity = "0";
+            // تفعيل نظام توليد القلوب المستدام بالخلفية
+            setInterval(() => { executeKineticHeartGeneration(false); }, 750);
+
+            // تفعيل نظام المحاكاة التفاعلي للكروت ثلاثي الأبعاد للهواتف الذكية والكمبيوتر
+            setupInteractiveCardTilt();
+
+            // بدء الآلة الكاتبة بدقة عالية بعد انتهاء التحول البصري
             setTimeout(() => {
-                btn.style.display = 'none';
-            }, 400);
-
-            // 2. تفعيل حاوية الرسالة السرية
-            const secretBox = document.getElementById('secretBox');
-            secretBox.classList.add('active');
-
-            // 3. تشغيل الموسيقى الخلفية
-            startMusic();
-
-            // 4. كتابة النص تدريجياً وبنعومة (Typewriter Effect)
-            typeWriterEffect(secretMessage, 'typewriter', 70);
-
-            // 5. بدء عاصفة القلوب الرائعة (أبيض وأزرق)
-            launchHeartShower();
+                executeCinematicTypewriter(masterManifestoString, 'dynamic-text-node', 60);
+            }, 900);
         }
 
+        function executeCinematicTypewriter(text, targetId, delayInterval) {
+            const outputContainer = document.getElementById(targetId);
+            outputContainer.innerHTML = "";
+            let textCursorIndex = 0;
 
-        // محاكاة محرك الآلة الكاتبة بدقة عالية
-        function typeWriterEffect(text, elementId, speed) {
-            const container = document.getElementById(elementId);
-            container.innerHTML = "";
-            let index = 0;
-
-            function write() {
-                if (index < text.length) {
-                    let char = text.charAt(index);
-                    if (char === '\n') {
-                        container.innerHTML += '<br>';
-                    } else {
-                        container.innerHTML += char;
-                    }
-                    index++;
-                    setTimeout(write, speed);
+            function stream() {
+                if (textCursorIndex < text.length) {
+                    outputContainer.innerHTML += text.charAt(textCursorIndex);
+                    textCursorIndex++;
+                    setTimeout(stream, delayInterval);
                 }
             }
-            write();
+            stream();
         }
 
+        // --------------------------------------------------
+        // د. نظام ومحرك العداد الزمني الدقيق (24 يونيو 2026)
+        // --------------------------------------------------
+        const epochTimestamp = new Date("June 24, 2026 00:00:00").getTime();
+
+        function syncChronometerMetrics() {
+            const temporalNow = new Date().getTime();
+            const elapsedTimeDelta = temporalNow - epochTimestamp;
+
+            // حسابات الوقت التفصيلية والمنقضية
+            const calculatedDays = Math.floor(elapsedTimeDelta / (1000 * 60 * 60 * 24));
+            const calculatedHours = Math.floor((elapsedTimeDelta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const calculatedMinutes = Math.floor((elapsedTimeDelta % (1000 * 60 * 60)) / (1000 * 60));
+            const calculatedSeconds = Math.floor((elapsedTimeDelta % (1000 * 60)) / 1000);
+
+            // حقن البيانات في واجهة الـ DOM
+            document.getElementById('node-days').innerText = calculatedDays < 10 ? '0' + calculatedDays : calculatedDays;
+            document.getElementById('node-hours').innerText = calculatedHours < 10 ? '0' + calculatedHours : calculatedHours;
+            document.getElementById('node-minutes').innerText = calculatedMinutes < 10 ? '0' + calculatedMinutes : calculatedMinutes;
+            document.getElementById('node-seconds').innerText = calculatedSeconds < 10 ? '0' + calculatedSeconds : calculatedSeconds;
+        }
+
+        setInterval(syncChronometerMetrics, 1000);
+        syncChronometerMetrics();
 
         // --------------------------------------------------
-        // د. نظام فيزيائي عشوائي وممتاز لمحاكاة تساقط القلوب
+        // هـ. تشغيل الخزنة السرية وعاصفة القلوب المكثفة
         // --------------------------------------------------
-        let heartInterval;
+        function executeVaultSurprise() {
+            if (!audioSystemActive) { orchestrateAudioToggle(); }
 
-        function launchHeartShower() {
-            // إرسال موجة أولى كثيفة وفورية من القلوب
-            for (let i = 0; i < 25; i++) {
-                setTimeout(createPerfectHeart, i * 120);
+            // فتح الصندوق السري السفلي بسلاسة
+            document.getElementById('vaultContentBlock').classList.add('unlocked');
+
+            // إطلاق عاصفة قلوب مكثفة وحركية سريعة
+            for (let index = 0; index < 25; index++) {
+                setTimeout(() => { executeKineticHeartGeneration(true); }, index * 120);
             }
-
-            // استمرار التساقط المنتظم بشكل طبيعي وهادئ
-            heartInterval = setInterval(createPerfectHeart, 300);
-
-            // تمديد المطر ليتوقف توليده تلقائياً بعد 15 ثانية لحفظ أداء المتصفح
-            setTimeout(() => {
-                clearInterval(heartInterval);
-            }, 15000);
         }
 
-        function createPerfectHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('falling-heart');
+        // --------------------------------------------------
+        // و. دالة بناء وتوليد جزيئات القلوب الحركية (🤍 و 🩵)
+        // --------------------------------------------------
+        function executeKineticHeartGeneration(isHighIntensity) {
+            const heartNode = document.createElement('div');
+            heartNode.classList.add('kinetic-heart');
+            
+            const variantPalette = ['🤍', '🩵'];
+            heartNode.innerText = variantPalette[Math.floor(Math.random() * variantPalette.length)];
+            
+            // حساب الإحداثيات العشوائية والفيزيائية
+            heartNode.style.left = Math.random() * 100 + 'vw';
+            const nodeSize = Math.random() * 16 + 16; 
+            heartNode.style.fontSize = nodeSize + 'px';
+            
+            const lifespanDuration = isHighIntensity ? (Math.random() * 2.5 + 3) : (Math.random() * 4 + 5);
+            heartNode.style.animationDuration = lifespanDuration + 's';
+            
+            const calculatedDriftX = (Math.random() * 120 - 60) + 'px';
+            heartNode.style.setProperty('--drift-x', calculatedDriftX);
 
-            // اختيار عشوائي للونين المطلوبين فقط
-            const colors = ['🤍', '💙'];
-            heart.innerText = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(heartNode);
 
-            // إعداد المتغيرات الفيزيائية العشوائية للمظهر الطبيعي
-            const randomX = Math.random() * 100; // تموضع أفقي بنسبة المئوية لعرض الشاشة
-            const size = Math.random() * 22 + 18; // حجم يتراوح بين 18px و 40px
-            const fallDuration = Math.random() * 4 + 4; // مدة السقوط بين 4 ثوانٍ و 8 ثوانٍ
-            const delay = Math.random() * 0.5; // تأخير بدائي بسيط
-
-            heart.style.left = `${randomX}vw`;
-            heart.style.fontSize = `${size}px`;
-            heart.style.animationDuration = `${fallDuration}s`;
-            heart.style.animationDelay = `${delay}s`;
-
-            // تأثير تمايل يسار ويمين خفيف أثناء السقوط
-            const tilt = Math.random() * 30 - 15; // زاوية دوران عشوائية
-            heart.style.transform = `rotate(${tilt}deg)`;
-
-            document.body.appendChild(heart);
-
-            // تدمير عنصر الـ DOM عند الانتهاء لضمان الأداء السلس
+            // تدمير فوري لعنصر الـ DOM بعد انتهاء الحركة لحفظ أداء الهواتف
             setTimeout(() => {
-                heart.remove();
-            }, (fallDuration + delay) * 1000);
+                heartNode.remove();
+            }, lifespanDuration * 1000);
+        }
+
+        // --------------------------------------------------
+        // ز. محرك الـ 3D Parallax Tilt للأجهزة والماوس
+        // --------------------------------------------------
+        function setupInteractiveCardTilt() {
+            const targetCards = document.querySelectorAll('.tilt-target');
+            
+            if (window.innerWidth > 768) {
+                targetCards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const bounding = card.getBoundingClientRect();
+                        const x = e.clientX - bounding.left;
+                        const y = e.clientY - bounding.top;
+                        const xc = bounding.width / 2;
+                        const yc = bounding.height / 2;
+                        const tiltX = (yc - y) / 12;
+                        const tiltY = (x - xc) / 12;
+                        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-5px)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0)';
+                    });
+                });
+            }
         }
     </script>
 </body>
